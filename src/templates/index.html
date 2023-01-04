@@ -1,0 +1,44 @@
+<title>Iris Predict App</title>
+
+<style>
+/* form を真ん中に表示 */
+#wrapper {
+    text-align: center;
+}
+</style>
+
+<!-- 入力フォームの記述 -->
+<div id="wrapper">
+  <h1>がくと花弁の幅と大きさを入力して、<br>
+        アヤメの花の種類を判定しよう</h1>
+  <form method="post">
+    {{ forms.csrf_token }}
+    
+    <!-- app.py で設定した irisForm の forms -->
+    {{ forms.SepalLength.label }}<br> <!-- 入力フォームの引数で指定したフォームの説明 -->
+    {{ forms.SepalLength }}<br>
+    {% for error in forms.SepalLength.errors %} <!-- 注意書き（Messageで指定している場合） -->
+    <div>{{ error }}</div> <!-- 注意書き表示 -->
+    {% endfor %}<br> <!-- for 文の終了 -->
+
+    {{ forms.SepalWidth.label }}<br>
+    {{ forms.SepalWidth }}<br>
+    {% for error in forms.SepalWidth.errors %}
+    <div>{{ error }}</div>
+    {% endfor %}<br>
+
+    {{ forms.PetalLength.label }}<br>
+    {{ forms.PetalLength }}<br>
+    {% for error in forms.PetalLength.errors %}
+    <div>{{ error }}</div>
+    {% endfor %}<br>
+
+    {{ forms.PetalWidth.label }}<br>
+    {{ forms.PetalWidth }}<br>
+    {% for error in forms.PetalWidth.errors %}
+    <div>{{ error }}</div>
+    {% endfor %}<br>
+
+    {{ forms.submit }}
+  </form>
+</div>
