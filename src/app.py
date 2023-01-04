@@ -17,7 +17,8 @@ import numpy as np
 #　学習済みモデルをもとに推論する関数
 def predict(x):
     # 学習済みモデル（iris.pkl）を読み込み
-    model = joblib.load('./src/iris.pkl')
+    # model = joblib.load('./src/iris.pkl')
+    model = joblib.load('src/iris.pkl')
     x = x.reshape(1,-1) # 2 次元ベクトルに変換
     pred_label = model.predict(x) # 推論
     return pred_label # 呼び出し元に返す
